@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="giP-9D-wTe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em9-Sw-mC9">
                                 <rect key="frame" x="16" y="94" width="343" height="162"/>
                                 <constraints>
@@ -29,14 +32,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="dJA-uH-2qe"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date selected:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1w-In-7IQ">
-                                <rect key="frame" x="16" y="65" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date selected:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1w-In-7IQ">
+                                <rect key="frame" x="132.5" y="65" width="110.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rQF-nt-fPe">
-                                <rect key="frame" x="0.0" y="320" width="375" height="162"/>
+                            <datePicker tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rQF-nt-fPe">
+                                <rect key="frame" x="27.5" y="320" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="531248280.36374402">
                                     <!--2017-11-01 16:58:00 +0000-->
                                 </date>
@@ -45,17 +48,23 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Em9-Sw-mC9" firstAttribute="top" secondItem="B1w-In-7IQ" secondAttribute="bottom" constant="8" id="0Bk-hs-Zro"/>
+                            <constraint firstItem="giP-9D-wTe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7J5-gM-1HR"/>
                             <constraint firstItem="rQF-nt-fPe" firstAttribute="centerX" secondItem="Em9-Sw-mC9" secondAttribute="centerX" id="EWI-oi-Syh"/>
                             <constraint firstItem="B1w-In-7IQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MPw-Wd-8oV"/>
                             <constraint firstItem="rQF-nt-fPe" firstAttribute="top" secondItem="Em9-Sw-mC9" secondAttribute="bottom" constant="64" id="Pzz-rW-lOD"/>
                             <constraint firstItem="Em9-Sw-mC9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XGe-FY-KoI"/>
                             <constraint firstItem="B1w-In-7IQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="ZlI-dz-QRJ"/>
+                            <constraint firstItem="giP-9D-wTe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="k3k-p3-jsr"/>
+                            <constraint firstItem="giP-9D-wTe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qOA-Ag-vgs"/>
+                            <constraint firstItem="giP-9D-wTe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qlW-dd-uHr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="background" destination="giP-9D-wTe" id="11N-lh-bwp"/>
                         <outlet property="dateLabel" destination="B1w-In-7IQ" id="jo4-QA-tuU"/>
-                        <outlet property="datePicker" destination="Em9-Sw-mC9" id="FAb-Ti-YTA"/>
+                        <outlet property="datePicker" destination="Em9-Sw-mC9" id="9Do-oQ-G2P"/>
+                        <outlet property="uiDatePicker" destination="rQF-nt-fPe" id="SDU-JT-zak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

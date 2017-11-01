@@ -11,24 +11,37 @@ import Foundation
 
 class ViewController: UIViewController {
 
-    var february: [Int]?, montha: [Int]?, monthb: [Int]?, months: [String]?, monthselected: Int?
+    var months: [String]?, monthselected: Int?
     var monthdays: [[Int]]?
     @IBOutlet weak var datePicker: UIPickerView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var uiDatePicker: UIDatePicker!
+    @IBOutlet weak var background: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        months = ["January","February","March","April","May","June","July","Augost","September","October","November","December"]
-        february = Array(0...28)
-        montha = Array(0...30)
-        monthb = Array(0...31)
-        monthdays = [Array(0...31), Array(0...28), Array(0...30)]
+        months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+  
+        monthdays = [Array(1...31), Array(1...28), Array(1...30)]
         monthselected = 1
+        uiDatePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        self.title = "📆 Dynamic date picker 📅"
+        background.image = #imageLiteral(resourceName: "backgroundone")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = componenets.day, let month = componenets.month, let year = componenets.year {
+            print("\(day) \(month) \(year)")
+            dateLabel.text = "Date selected: \(months![Int(month)-1])/\(day)/\(year)"
+            datePicker.selectRow(Int(month)-1, inComponent:0, animated:true)
+            datePicker.selectRow(Int(day)-1, inComponent:1, animated:true)
+        }
     }
 }
 
@@ -41,10 +54,10 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource{
                 monthselected = row+1
                 pickerView.reloadAllComponents()
             }else{
-                dateLabel.text = "Date selected: \(months![pickerView.selectedRow(inComponent: 0)])/\(monthb![row])"
+                dateLabel.text = "Date selected: \(months![pickerView.selectedRow(inComponent: 0)])/\(monthdays![0][row])"
             }
         }else{
-            //
+           print("toco el otro")
         }
     }
     
@@ -61,17 +74,17 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         else {
            
             if monthselected == 1 || monthselected == 3 || monthselected == 5 || monthselected ==  7 || monthselected == 8 || monthselected == 10 || monthselected == 12 {
-                return monthb!.count
+                return monthdays![0].count
             }else if monthselected == 2 {
-                return february!.count
+                return monthdays![1].count
             }else {
-                return montha!.count
+                return monthdays![2].count
             }
         }
         
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if component == 0 {
             return months![row]
@@ -79,11 +92,11 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             
         else {
             if monthselected == 1 || monthselected == 3 || monthselected == 5 || monthselected ==  7 || monthselected == 8 || monthselected == 10 || monthselected == 12 {
-                return String(monthb![row])
+                return String(monthdays![0][row])
             }else if monthselected == 2 {
-                return String(february![row])
+                return String(monthdays![1][row])
             }else {
-                return String(montha![row])
+                return String(monthdays![2][row])
             }
         }
     }
