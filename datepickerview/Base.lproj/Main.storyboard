@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="datepickerview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em9-Sw-mC9">
+                                <rect key="frame" x="16" y="94" width="343" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Em9-Sw-mC9" secondAttribute="height" multiplier="343:162" id="jbt-MM-knY"/>
+                                    <constraint firstAttribute="width" constant="343" id="ySP-gC-dpF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9bM-Ic-iUq"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dJA-uH-2qe"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date selected:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1w-In-7IQ">
+                                <rect key="frame" x="16" y="65" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rQF-nt-fPe">
+                                <rect key="frame" x="0.0" y="320" width="375" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="531248280.36374402">
+                                    <!--2017-11-01 16:58:00 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Em9-Sw-mC9" firstAttribute="top" secondItem="B1w-In-7IQ" secondAttribute="bottom" constant="8" id="0Bk-hs-Zro"/>
+                            <constraint firstItem="rQF-nt-fPe" firstAttribute="centerX" secondItem="Em9-Sw-mC9" secondAttribute="centerX" id="EWI-oi-Syh"/>
+                            <constraint firstItem="B1w-In-7IQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MPw-Wd-8oV"/>
+                            <constraint firstItem="rQF-nt-fPe" firstAttribute="top" secondItem="Em9-Sw-mC9" secondAttribute="bottom" constant="64" id="Pzz-rW-lOD"/>
+                            <constraint firstItem="Em9-Sw-mC9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XGe-FY-KoI"/>
+                            <constraint firstItem="B1w-In-7IQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="ZlI-dz-QRJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="B1w-In-7IQ" id="jo4-QA-tuU"/>
+                        <outlet property="datePicker" destination="Em9-Sw-mC9" id="FAb-Ti-YTA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
